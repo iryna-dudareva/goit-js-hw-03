@@ -1,14 +1,18 @@
-//Задача 3. Ширина елемента
+//Задача 3. Фільтрація масиву чисел
 
-function getElementWidth(content, padding, border) { 
-    const elementWidth = Number.parseFloat(content) + (Number.parseFloat(padding)*2) + (Number.parseFloat(border)*2) ;
-    return elementWidth;
+function filterArray(numbers, value) { 
+    const resArray = [];
+    for (i = 0; i < numbers.length; i++) { 
+        if (numbers[i] > value) { 
+            resArray.push(numbers[i]);
+        }
+    }
+    return resArray;
 }
 
 
-
-
-
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
